@@ -1,0 +1,89 @@
+.cart {
+    padding: 20px;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.total h2 {
+    color: white;
+}
+
+.cart h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cartItems {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cartItems p {
+    text-align: center;
+    font-size: 18px;
+}
+
+.cartItem {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.cartItem img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.cartItem .description {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cartItem .description p {
+    margin: 5px 0;
+}
+
+.quantityControl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.quantityControl button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.quantityControl .add {
+    background-color: #28a745;
+}
+
+.quantityControl .add:hover {
+    background-color: #218838;
+}
+
+.quantityControl .remove {
+    background-color: #dc3545;
+}
+
+.quantityControl .remove:hover {
+    background-color: #c82333;
+}
+
+.quantityControl span {
+    font-size: 16px;
+}
