@@ -1,20 +1,20 @@
-import React from 'react'
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchProducts } from '../../api';
 import { Product } from './product';
-import './shop.css'
-
+import './shop.css';
 
 export const Shop = () => {
     const [products, setProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [displayCount, setDisplayCount] = useState(8);
-
+    const [loading, setLoading] = useState(true); // เพิ่มสถานะ loading
 
     useEffect(() => {
         const getProducts = async () => {
+            setLoading(true); // เริ่มการโหลด
             const products = await fetchProducts();
             setProducts(products);
+            setLoading(false); // โหลดเสร็จสิ้น
         };
 
         getProducts();
@@ -49,20 +49,25 @@ export const Shop = () => {
             </div>
 
             <div className='products'>
-                {displayedProducts.map((product) => (
-                    <Product key={product.id} data={product} />
-                ))}
-            </div>
-            <div>
-                {filteredProducts.length === 0 && (
-                    <p className="noProducts">Not Found</p>
+                {loading ? ( // ถ้า loading ให้แสดงข้อความ Loading
+                    <p className="loading">Loading...</p>
+                ) : (
+                    <>
+                        {displayedProducts.map((product) => (
+                            <Product key={product.id} data={product} />
+                        ))}
+                        {filteredProducts.length === 0 && (
+                            <p className="noProducts">Not Found</p>
+                        )}
+                    </>
                 )}
             </div>
-            {displayCount < filteredProducts.length && (
+
+            {!loading && displayCount < filteredProducts.length && (
                 <button className='showMoreBttn' onClick={handleShowMore}>
                     Show More
                 </button>
             )}
         </div>
-    )
-}
+    );
+};

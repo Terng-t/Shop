@@ -1,26 +1,22 @@
 .navbar {
     background: #1B2E3C;
-    width: 100%;
     height: 110px;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    padding-right: 5px;
+    justify-content: space-between;
     position: sticky;
     z-index: 1000;
     top: 0;
-    padding: 0;
+    padding: 0px 50px;
     border-bottom: 3px solid #B68D40;
 }
 
 .navbar h1 {
-    margin-right: 580px;
     color: #B68D40;
     font-family: Georgia, serif;
 }
 
 .links {
-    margin-right: 50px;
     display: flex;
     align-items: center;
 }
@@ -28,8 +24,8 @@
 .links a {
     text-decoration: none;
     color: #B68D40;
-    margin: 18px;
     scale: 1.2;
+    margin-right: 50px;
 }
 
 .btn {
